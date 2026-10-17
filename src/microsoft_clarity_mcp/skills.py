@@ -21,16 +21,14 @@ _BUNDLED_SKILLS: Dict[str, str] = {
 
 def get_local_skills_dir() -> Path:
     """Find the local skills directory."""
-    # Check package root (repo root) or src-relative
     candidates = [
-        Path(__file__).parent.parent.parent / "skills",
         Path(__file__).parent / "skills",
-        Path.cwd() / "skills",
+        Path(__file__).parent.parent.parent / "skills",
     ]
     for c in candidates:
         if c.exists() and c.is_dir():
             return c
-    return candidates[0]
+    return Path(__file__).parent / "skills"
 
 
 def list_available_skills() -> List[str]:
@@ -80,3 +78,20 @@ def read_skill_content(name: str) -> Tuple[str, bool]:
         "Call skills_list() to see descriptions.",
         False,
     )
+
+
+def skills_list() -> str:
+    """List available skills as JSON string."""
+    skills = list_available_skills()
+    return json.dumps({
+        "skills": skills,
+        "source": "github+local",
+        "description": "Call skill_read(name='<skill_name>') to load any playbook."
+    }, indent=2)
+
+
+def skill_read(name: str) -> str:
+    """Read a skill and return its text content directly."""
+    content, _ = read_skill_content(name)
+    return content
+

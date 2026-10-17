@@ -1,14 +1,11 @@
 {
   "name": "microsoft-clarity-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "FastMCP server for Microsoft Clarity UX & rage-click diagnostics (thin uvx bridge).",
   "main": "bin/index.js",
   "bin": {
-    "microsoft-clarity-mcp": "./bin/index.js"
+    "microsoft-clarity-mcp": "bin/index.js"
   },
-  "files": [
-    "bin/index.js"
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",

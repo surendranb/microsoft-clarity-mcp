@@ -1,6 +1,6 @@
 [project]
 name = "microsoft-clarity-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "FastMCP server for Microsoft Clarity: behavioral UX diagnostics, rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -47,7 +47,11 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+microsoft_clarity_mcp = ["skills/*.md", "py.typed"]
+
 [tool.pytest.ini_options]
 pythonpath = ["src", "."]
 asyncio_mode = "auto"
+
 
