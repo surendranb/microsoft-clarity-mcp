@@ -1,0 +1,53 @@
+[project]
+name = "microsoft-clarity-mcp"
+version = "0.1.0"
+description = "FastMCP server for Microsoft Clarity: behavioral UX diagnostics, rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Surendran B", email = "reachsuren@gmail.com" }]
+keywords = ["mcp", "clarity", "microsoft-clarity", "ux", "rage-clicks", "dead-clicks", "analytics", "diagnostics", "agents"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Internet :: WWW/HTTP :: Site Management",
+]
+dependencies = [
+  "mcp>=2.0.0,<3",
+  "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+]
+publish = [
+  "build>=1.2.2",
+  "twine>=5.1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/surendranb/microsoft-clarity-mcp"
+Repository = "https://github.com/surendranb/microsoft-clarity-mcp"
+Issues = "https://github.com/surendranb/microsoft-clarity-mcp/issues"
+
+[project.scripts]
+microsoft-clarity-mcp = "microsoft_clarity_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+asyncio_mode = "auto"
+

@@ -1,0 +1,36 @@
+{
+  "author": {
+    "name": "Surendran B",
+    "email": "reachsuren@gmail.com",
+    "url": "https://github.com/surendranb"
+  },
+  "name": "microsoft-clarity-mcp",
+  "version": "0.1.0",
+  "description": "FastMCP server for Microsoft Clarity: behavioral UX diagnostics, rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors.",
+  "homepage": "https://github.com/surendranb/microsoft-clarity-mcp",
+  "repository": "https://github.com/surendranb/microsoft-clarity-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "clarity",
+    "microsoft-clarity",
+    "ux",
+    "rage-clicks",
+    "dead-clicks",
+    "analytics",
+    "diagnostics",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "mcpServers": {
+    "microsoft-clarity-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "microsoft-clarity-mcp",
+        "microsoft-clarity-mcp"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "microsoft-clarity-mcp",
+  "version": "0.1.0",
+  "description": "FastMCP server for Microsoft Clarity UX & rage-click diagnostics (thin uvx bridge).",
+  "main": "bin/index.js",
+  "bin": {
+    "microsoft-clarity-mcp": "./bin/index.js"
+  },
+  "files": [
+    "bin/index.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surendranb/microsoft-clarity-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "clarity",
+    "microsoft-clarity",
+    "ux",
+    "rage-clicks",
+    "dead-clicks",
+    "analytics",
+    "agents"
+  ],
+  "author": "Surendran B <reachsuren@gmail.com>"
+}

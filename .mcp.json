@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "microsoft-clarity-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "microsoft-clarity-mcp",
+        "microsoft-clarity-mcp"
+      ],
+      "env": {}
+    }
+  }
+}
