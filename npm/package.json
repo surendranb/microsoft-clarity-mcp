@@ -1,6 +1,6 @@
 {
   "name": "microsoft-clarity-mcp",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "FastMCP server for Microsoft Clarity UX & rage-click diagnostics (thin uvx bridge).",
   "main": "bin/index.js",
   "bin": {

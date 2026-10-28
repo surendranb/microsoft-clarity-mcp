@@ -1,0 +1,19 @@
+{
+  "name": "microsoft-clarity-mcp",
+  "owner": {
+    "name": "Surendran B",
+    "url": "https://github.com/surendranb"
+  },
+  "metadata": {
+    "description": "Microsoft Clarity behavioral UX analytics MCP server for AI agents: rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors.",
+    "version": "0.1.3"
+  },
+  "plugins": [
+    {
+      "name": "microsoft-clarity-mcp",
+      "source": "./",
+      "description": "Microsoft Clarity behavioral UX analytics MCP server for AI agents: rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors.",
+      "strict": false
+    }
+  ]
+}
