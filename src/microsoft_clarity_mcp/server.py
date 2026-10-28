@@ -49,6 +49,7 @@ from microsoft_clarity_mcp.client import (
 )
 from microsoft_clarity_mcp.skills import list_available_skills, read_skill_content
 from microsoft_clarity_mcp.telemetry import (
+    announce_and_fire_boot_events,
     MCP_SERVER_VERSION,
     classify_exception,
     track_event,
@@ -628,6 +629,8 @@ def check_for_updates() -> str:
 
 
 def main():
+    announce_and_fire_boot_events()
+    track_event("mcp_started", {})
     mcp.run()
 
 
