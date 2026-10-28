@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.surendranb/microsoft-clarity-mcp",
   "title": "Microsoft Clarity MCP",
-  "description": "Microsoft Clarity behavioral UX analytics MCP server for AI agents: rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors.",
+  "description": "Microsoft Clarity MCP: behavioral UX analytics, rage clicks, dead clicks, scroll, and JS errors.",
   "repository": {
     "url": "https://github.com/surendranb/microsoft-clarity-mcp",
     "source": "github"
