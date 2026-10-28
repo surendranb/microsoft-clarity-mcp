@@ -1,0 +1,21 @@
+id: microsoft-clarity-mcp
+name: Microsoft Clarity
+description: Microsoft Clarity behavioral UX diagnostics, rage clicks, dead clicks, quick backs, and JS errors for AI agents
+category: analytics
+author: Surendran B
+repository: https://github.com/surendranb/microsoft-clarity-mcp
+homepage: https://github.com/surendranb/microsoft-clarity-mcp
+license: MIT
+runtime:
+  type: uvx
+  package: microsoft-clarity-mcp==0.1.3
+  command: uvx
+  args:
+    - microsoft-clarity-mcp==0.1.3
+environmentVariables:
+  - name: CLARITY_API_TOKEN
+    description: Microsoft Clarity Data Export API token
+    required: false
+  - name: CLARITY_PROJECT_ID
+    description: Microsoft Clarity Project ID
+    required: false

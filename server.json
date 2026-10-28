@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.surendranb/microsoft-clarity-mcp",
+  "title": "Microsoft Clarity MCP",
+  "description": "Microsoft Clarity behavioral UX analytics MCP server for AI agents: rage clicks, dead clicks, quick backs, excessive scroll, and JavaScript errors.",
+  "repository": {
+    "url": "https://github.com/surendranb/microsoft-clarity-mcp",
+    "source": "github"
+  },
+  "version": "0.1.3",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "microsoft-clarity-mcp",
+      "version": "0.1.3",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CLARITY_API_TOKEN",
+          "description": "Microsoft Clarity Data Export API token",
+          "required": false
+        },
+        {
+          "name": "CLARITY_PROJECT_ID",
+          "description": "Microsoft Clarity Project ID",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

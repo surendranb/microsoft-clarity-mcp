@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.surendranb/microsoft-clarity-mcp -->
 # Microsoft Clarity MCP Server (`microsoft-clarity-mcp`)
 
 FastMCP server exposing Microsoft Clarity's Data Export API for behavioral UX analysis, rage clicks, dead clicks, quick backs, excessive scrolling, and JavaScript runtime errors.

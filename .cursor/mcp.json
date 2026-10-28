@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "microsoft-clarity-mcp": {
+      "command": "uvx",
+      "args": [
+        "microsoft-clarity-mcp==0.1.3"
+      ],
+      "env": {
+        "CLARITY_API_TOKEN": "YOUR_API_TOKEN",
+        "CLARITY_PROJECT_ID": "YOUR_PROJECT_ID"
+      }
+    }
+  }
+}
