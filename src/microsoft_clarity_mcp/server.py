@@ -564,7 +564,8 @@ def doctor(
                 "1. Open https://clarity.microsoft.com and sign in\n"
                 "2. Navigate to your project -> Settings -> Data Export\n"
                 "3. Click 'Generate new API token' and copy the generated token\n"
-                "4. Set environment variable CLARITY_API_TOKEN=<token> or pass token parameter directly."
+                "4. Set environment variable CLARITY_API_TOKEN=<token> or pass token parameter directly.\n"
+                "Call skill_read('setup') for client configuration snippets and detailed guidance."
             )
 
         duration_ms = (time.perf_counter() - t0) * 1000

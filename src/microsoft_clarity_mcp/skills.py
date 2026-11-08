@@ -13,8 +13,10 @@ SKILLS_REPO_URL = "https://raw.githubusercontent.com/surendranb/microsoft-clarit
 
 # Registry of bundled starter skills
 _BUNDLED_SKILLS: Dict[str, str] = {
-    "ux-triage": "UX Friction Triage: Diagnose rage clicks, dead clicks, quick backs, and JS errors.",
+    "setup": "Setup Microsoft Clarity Token & Project ID: Canonical onboarding guide for Microsoft Clarity MCP.",
+    "clarity_setup": "Setup Microsoft Clarity Token & Project ID: Canonical onboarding guide for Microsoft Clarity MCP.",
     "setup-clarity-token": "Setup Clarity Token: Guide to generating and configuring Microsoft Clarity API tokens.",
+    "ux-triage": "UX Friction Triage: Diagnose rage clicks, dead clicks, quick backs, and JS errors.",
     "frustration-audit": "Behavioral UX Audit: Framework for systematic frustration index and conversion friction auditing.",
 }
 
@@ -47,7 +49,15 @@ def read_skill_content(name: str) -> Tuple[str, bool]:
     Returns:
         (content, success)
     """
-    safe_name = "".join(c for c in name if c.isalnum() or c in ("-", "_")).strip()
+    raw = name.strip().lower()
+    if raw.endswith(".md"):
+        raw = raw[:-3]
+    if raw in ("setup", "clarity-setup", "clarity_setup"):
+        safe_name = "setup"
+    elif raw in ("setup-clarity-token", "setup_clarity_token"):
+        safe_name = "setup"
+    else:
+        safe_name = "".join(c for c in raw if c.isalnum() or c in ("-", "_")).strip()
     if not safe_name:
         return "[INPUT_FIXABLE] Skill name cannot be empty. Call skills_list to view available skills.", False
 
