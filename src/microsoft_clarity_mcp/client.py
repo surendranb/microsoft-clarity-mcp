@@ -69,7 +69,8 @@ def resolve_token(token: Optional[str] = None) -> str:
         "1. Open your project on https://clarity.microsoft.com\n"
         "2. Navigate to Settings -> Data Export\n"
         "3. Click 'Generate new API token' and copy the token\n"
-        "4. Set environment variable CLARITY_API_TOKEN=<token> or pass token parameter directly."
+        "4. Set environment variable CLARITY_API_TOKEN=<token> or pass token parameter directly.\n"
+        "Call skill_read('setup') for client configuration snippets and detailed guidance."
     )
 
 
@@ -220,7 +221,8 @@ class ClarityClient:
                 f"1. Open https://clarity.microsoft.com\n"
                 f"2. Go to Settings -> Data Export\n"
                 f"3. Click 'Generate new API token'\n"
-                f"4. Export CLARITY_API_TOKEN=<token>"
+                f"4. Export CLARITY_API_TOKEN=<token>\n"
+                f"Call skill_read('setup') for client configuration snippets and detailed guidance."
             )
 
         if resp.status_code == 400:
