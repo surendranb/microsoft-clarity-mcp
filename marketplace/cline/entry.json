@@ -23,7 +23,7 @@
       "microsoft-clarity-mcp",
       "--",
       "uvx",
-      "microsoft-clarity-mcp==0.1.3"
+      "microsoft-clarity-mcp==0.1.5"
     ],
     "env": [
       {
