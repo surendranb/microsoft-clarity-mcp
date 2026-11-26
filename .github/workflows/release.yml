@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Publish PyPI then npm
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Assert the tag matches pyproject.toml and npm/package.json
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          python3 - "$TAG" <<'PY'
+          import json, sys, tomllib
+          tag = sys.argv[1]
+          version = tag.removeprefix("v")
+          py = tomllib.load(open("pyproject.toml", "rb"))["project"]["version"]
+          js = json.load(open("npm/package.json"))["version"]
+          for name, found in (("pyproject.toml", py), ("npm/package.json", js)):
+              if found != version:
+                  sys.exit(f"::error::{name} is {found} but tag {tag} says {version}")
+          print(f"tag {tag} matches both manifests")
+          PY
+
+      - name: Run tests
+        run: |
+          uv run --with pytest --with pytest-asyncio pytest -q
+
+      - name: Build distributions with uv
+        run: uv build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip-existing: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish to npm
+        working-directory: npm
+        run: |
+          npm publish --access public || {
+            echo "::error::npm publish failed. E401/ENEEDAUTH means secrets.NPM_TOKEN is missing, expired, or lacks publish rights for this package; E403 'cannot publish over the previously published version' means the version is already on npm and the manifests are out of step."
+            exit 1
+          }
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Assert both registries serve the tagged version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          curl -fsS "https://pypi.org/pypi/microsoft-clarity-mcp/${VERSION}/json" >/dev/null || {
+            echo "::error::PyPI has no release ${VERSION} after publish"
+            exit 1
+          }
+          npm view "microsoft-clarity-mcp@${VERSION}" version >/dev/null || {
+            echo "::error::npm has no version ${VERSION} after publish"
+            exit 1
+          }
+          echo "PyPI and npm both serve ${VERSION}"
